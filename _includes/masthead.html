@@ -62,7 +62,7 @@
           >
           <i class="fas fa-search"></i>
         </button>
-        {% endif %} {% include theme-toggle.html %}
+        {% endif %}
         <button
           class="greedy-nav__toggle hidden"
           type="button"
@@ -78,3 +78,12 @@
     </div>
   </div>
 </div>
+<script>
+  // Initialize greedy navigation
+  document.addEventListener('DOMContentLoaded', function () {
+    const nav = document.getElementById('site-nav');
+    if (nav) {
+      new GreedyNav(nav);
+    }
+  });
+</script>
