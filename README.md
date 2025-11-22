@@ -17,6 +17,7 @@ This repository contains the source for a personal research/portfolio website po
 - Custom CSS: `assets/css/theme-enhanced.css`
 - Theme JS: `assets/js/theme-switcher.js`
 - Images: `assets/images/`
+- PDFs: `assets/pdf/` (e.g., `transformers-and-attention-mechanism.pdf`)
 
 ## Prerequisites (Windows / PowerShell)
 
@@ -89,6 +90,10 @@ excerpt: "One-line summary"
   - navigation/masthead theme overrides
 
 - Theme switching and persistence are handled in `assets/js/theme-switcher.js`. It reads/writes to `localStorage`, responds to system preference, and updates `html[data-theme]` accordingly.
+
+- **MathJax support**: LaTeX mathematical formulas are supported via MathJax v3. Use `$...$` for inline math and `$$...$$` for display math in your posts. Enable by adding `mathjax: true` to post front matter (enabled by default for all posts).
+
+- **Mermaid diagrams**: Flowcharts, sequence diagrams, and other Mermaid diagrams are supported. Use ` ```mermaid ` code blocks in your posts. Enable by adding `mermaid: true` to post front matter.
 
 If you want to tweak the header overlay color/contrast, edit the `.page__hero--overlay` selectors in `assets/css/theme-enhanced.css`. For TOC look-and-feel, edit the `.toc` and `.toc__menu` sections.
 
