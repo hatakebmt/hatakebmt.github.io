@@ -1,0 +1,617 @@
+/* ==========================================================================
+   DESIGN SYSTEM - COMPONENTS
+   Standardized buttons and cards for consistent styling
+   ========================================================================== */
+
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ========================================================================== */
+
+:root {
+  /* Spacing Scale (8px grid system) */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 0.75rem;   /* 12px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+
+  /* Border Radius Scale */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-round: 25px;
+
+  /* Box Shadow Scale */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+  /* Card Colors */
+  --card-bg: #ffffff;
+  --card-bg-light: #f8f9fa;
+  --card-bg-dark: #f0f0f0;
+  --card-border: #e0e0e0;
+  --card-text: #333333;
+  --card-text-muted: #666666;
+
+  /* Transition */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.4s ease;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-bg: #1a1a1a;
+    --card-bg-light: #252525;
+    --card-bg-dark: #2a2a2a;
+    --card-border: #404040;
+    --card-text: #e0e0e0;
+    --card-text-muted: #a0a0a0;
+  }
+}
+
+/* ==========================================================================
+   BUTTON EXTENSIONS
+   Extends Minimal Mistakes theme buttons with additional variants
+   ========================================================================== */
+
+/* Rounded button variant */
+.btn--rounded {
+  border-radius: var(--radius-round) !important;
+  padding: var(--space-md) var(--space-xl) !important;
+}
+
+/* Outlined button variant */
+.btn--outline {
+  background: transparent !important;
+  border: 2px solid currentColor !important;
+  color: inherit !important;
+}
+
+.btn--outline:hover {
+  background: currentColor !important;
+  color: #fff !important;
+}
+
+/* Icon button */
+.btn--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.btn--icon i,
+.btn--icon .icon {
+  font-size: 1.1em;
+}
+
+/* Button with shadow */
+.btn--shadow {
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.btn--shadow:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================================================
+   CARD COMPONENT SYSTEM
+   Base card with variants for different use cases
+   ========================================================================== */
+
+/* Base Card */
+.card {
+  display: block;
+  padding: var(--space-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal), 
+              box-shadow var(--transition-normal),
+              border-color var(--transition-normal);
+  color: var(--card-text);
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color, #7a8288);
+  text-decoration: none;
+}
+
+/* Card Header */
+.card__header {
+  margin-bottom: var(--space-md);
+}
+
+.card__title {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--card-text);
+}
+
+.card__subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--card-text-muted);
+}
+
+/* Card Body */
+.card__body {
+  color: var(--card-text);
+  line-height: 1.6;
+}
+
+.card__body p {
+  margin-bottom: var(--space-sm);
+}
+
+.card__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Card Footer */
+.card__footer {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--card-border);
+  font-size: 0.875rem;
+  color: var(--card-text-muted);
+}
+
+/* Card Icon */
+.card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-md);
+  background: var(--card-bg-light);
+  border-radius: var(--radius-md);
+  color: var(--primary-color, #7a8288);
+  font-size: 1.5rem;
+}
+
+/* ==========================================================================
+   CARD VARIANTS
+   ========================================================================== */
+
+/* Compact Card */
+.card--compact {
+  padding: var(--space-md);
+}
+
+.card--compact .card__icon {
+  width: 36px;
+  height: 36px;
+  font-size: 1.25rem;
+}
+
+/* Large Card */
+.card--large {
+  padding: var(--space-xl);
+}
+
+/* Flat Card (no shadow) */
+.card--flat {
+  box-shadow: none;
+  border: 1px solid var(--card-border);
+}
+
+.card--flat:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+/* Elevated Card (more shadow) */
+.card--elevated {
+  box-shadow: var(--shadow-lg);
+}
+
+.card--elevated:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Light Background Card */
+.card--light {
+  background: var(--card-bg-light);
+}
+
+/* No Hover Card (static) */
+.card--static {
+  transform: none !important;
+  box-shadow: var(--shadow-md) !important;
+  border-color: var(--card-border) !important;
+}
+
+/* Interactive Card (enhances clickable cards) */
+.card--interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+.card--interactive:active {
+  transform: translateY(-2px);
+}
+
+/* Horizontal Card */
+.card--horizontal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.card--horizontal .card__icon {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   SPECIFIC CARD TYPES
+   Standardized versions of existing card patterns
+   ========================================================================== */
+
+/* YouTube Video Card */
+.youtube-video-card,
+.video-card {
+  padding: var(--space-md);
+  background: var(--card-bg-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal);
+}
+
+.youtube-video-card:hover,
+.video-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.youtube-video-card h3,
+.video-card h3 {
+  margin: 0 0 var(--space-sm);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--card-text);
+}
+
+.youtube-video-card p,
+.video-card p {
+  margin: var(--space-sm) 0 0;
+  font-size: 0.875rem;
+  color: var(--card-text-muted);
+}
+
+.youtube-video-card iframe,
+.video-card iframe {
+  border-radius: var(--radius-sm);
+}
+
+/* Video Card Wrapper */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: #000;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Blog Card */
+.blog-card {
+  padding: var(--space-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal), 
+              box-shadow var(--transition-normal);
+  text-decoration: none;
+  display: block;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+}
+
+.blog-card__date {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: 0.8125rem;
+  color: var(--card-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blog-card__title {
+  margin: 0 0 var(--space-sm);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--card-text);
+  line-height: 1.3;
+}
+
+.blog-card__excerpt {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--card-text-muted);
+  line-height: 1.6;
+}
+
+.blog-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+
+.blog-card__tag {
+  padding: 0.25rem 0.625rem;
+  background: var(--card-bg-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  color: var(--card-text-muted);
+  text-decoration: none;
+}
+
+/* Connect Card */
+.connect-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  text-align: center;
+  min-height: 200px;
+}
+
+.connect-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-color, #7a8288);
+  text-decoration: none;
+}
+
+.connect-card i,
+.connect-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+  color: var(--primary-color, #7a8288);
+  transition: transform var(--transition-normal);
+}
+
+.connect-card:hover i,
+.connect-card:hover .icon {
+  transform: scale(1.1);
+}
+
+.connect-card h4 {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--card-text);
+}
+
+.connect-card p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--card-text-muted);
+}
+
+/* Achievement Card (for About page) */
+.achievement-card {
+  padding: var(--space-lg);
+  background: var(--card-bg-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), 
+              box-shadow var(--transition-normal);
+}
+
+.achievement-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.achievement-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-md);
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  font-size: 1.75rem;
+  color: var(--primary-color, #7a8288);
+}
+
+.achievement-card__title {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--card-text);
+}
+
+.achievement-card__description {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--card-text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   CARD GRID LAYOUTS
+   ========================================================================== */
+
+.card-grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.card-grid--2col {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.card-grid--3col {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.card-grid--4col {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+/* Compact grid spacing */
+.card-grid--compact {
+  gap: var(--space-md);
+}
+
+/* Large grid spacing */
+.card-grid--spacious {
+  gap: var(--space-xl);
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-md);
+  }
+
+  .card--large {
+    padding: var(--space-lg);
+  }
+
+  .card__title {
+    font-size: 1.125rem;
+  }
+
+  .card--horizontal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .connect-card {
+    padding: var(--space-lg);
+    min-height: 160px;
+  }
+
+  .connect-card i,
+  .connect-card .icon {
+    font-size: 2rem;
+  }
+
+  .card-grid,
+  .card-grid--2col,
+  .card-grid--3col,
+  .card-grid--4col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-grid--3col,
+  .card-grid--4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .btn--shadow,
+  .connect-card,
+  .achievement-card,
+  .blog-card {
+    transition: none;
+  }
+
+  .card:hover,
+  .connect-card:hover,
+  .achievement-card:hover,
+  .blog-card:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card,
+  .blog-card,
+  .connect-card,
+  .achievement-card {
+    border-width: 2px;
+  }
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
+/* Text alignment in cards */
+.card--center {
+  text-align: center;
+}
+
+.card--right {
+  text-align: right;
+}
+
+/* Full width cards */
+.card--full {
+  width: 100%;
+}
+
+/* Card with image */
+.card--with-image .card__image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+}
+
+/* No border card */
+.card--borderless {
+  border: none;
+}
+
+/* Focus styles for accessibility */
+.card:focus,
+.btn:focus,
+.connect-card:focus {
+  outline: 3px solid var(--primary-color, #7a8288);
+  outline-offset: 2px;
+}
