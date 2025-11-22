@@ -12,7 +12,7 @@ excerpt: "Passionate researcher and developer with expertise in technology and i
 custom_css:
   - /assets/css/about-page.css
 ---
-
+<!-- markdownlint-disable MD033 -->
 ## 👋 Welcome!
 
 I'm a passionate researcher and developer with a strong background in technology and innovation. This website serves as a platform to share my journey, expertise, and contributions to the field.
@@ -142,7 +142,6 @@ I'm a passionate researcher and developer with a strong background in technology
         <div class="skill-progress" style="width: 95%"></div>
       </div>
     </div>
-    
     <div class="skill-item">
       <div class="skill-info">
         <span class="skill-name"><i class="fab fa-js"></i> JavaScript</span>
@@ -152,7 +151,6 @@ I'm a passionate researcher and developer with a strong background in technology
         <div class="skill-progress" style="width: 85%"></div>
       </div>
     </div>
-    
     <div class="skill-item">
       <div class="skill-info">
         <span class="skill-name"><i class="fab fa-java"></i> Java</span>
@@ -162,7 +160,6 @@ I'm a passionate researcher and developer with a strong background in technology
         <div class="skill-progress" style="width: 75%"></div>
       </div>
     </div>
-    
     <div class="skill-item">
       <div class="skill-info">
         <span class="skill-name"><i class="fas fa-code"></i> R</span>
