@@ -11,6 +11,24 @@ header:
 author_profile: true
 mathjax: true
 ---
+- [Using LaTeX Math Formulas in Jekyll Posts](#using-latex-math-formulas-in-jekyll-posts)
+  - [How to Use LaTeX Formulas](#how-to-use-latex-formulas)
+    - [Inline Math](#inline-math)
+    - [Display Math (Block Equations)](#display-math-block-equations)
+    - [Common Examples](#common-examples)
+      - [1. Fractions and Roots](#1-fractions-and-roots)
+      - [2. Greek Letters](#2-greek-letters)
+      - [3. Subscripts and Superscripts](#3-subscripts-and-superscripts)
+      - [4. Summation and Integrals](#4-summation-and-integrals)
+      - [5. Matrices](#5-matrices)
+      - [6. Aligned Equations](#6-aligned-equations)
+      - [7. Cases (Piecewise Functions)](#7-cases-piecewise-functions)
+      - [8. Calculus](#8-calculus)
+      - [9. Vectors and Norms](#9-vectors-and-norms)
+      - [10. Machine Learning / Statistics](#10-machine-learning--statistics)
+  - [Disabling MathJax for Specific Posts](#disabling-mathjax-for-specific-posts)
+  - [Tips](#tips)
+  - [More Information](#more-information)
 
 # Using LaTeX Math Formulas in Jekyll Posts
 
@@ -241,7 +259,6 @@ mathjax: false
 4. **Testing**: You can test your LaTeX at https://www.mathjax.org/#demo
 
 ## More Information
-
-- MathJax Documentation: https://docs.mathjax.org/
-- LaTeX Math Symbols: https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols
-- Common LaTeX Commands: https://www.overleaf.com/learn/latex/Mathematical_expressions
+- [MathJax Documentation](https://docs.mathjax.org/)
+- [LaTeX Math Symbols](https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols)
+- [Common LaTeX Commands](https://www.overleaf.com/learn/latex/Mathematical_expressions)
