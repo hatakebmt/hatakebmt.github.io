@@ -18,12 +18,7 @@ excerpt: 'Welcome to my digital space - exploring innovation through research, d
 <div class="homepage-hero">
   <div class="hero-content">
     <h1 class="hero-title">
-      <span class="avatar-wrapper">
-        <span class="avatar avatar--md avatar--ring">
-          <img src="/assets/images/avatar-alex.jpg" alt="Alex" />
-        </span>
-        <span class="avatar__status avatar__status--online" aria-hidden="true"></span>
-      </span>
+      {% include avatar.html image="/assets/images/avatar-alex.jpg" size="md" ring="true" status="online" alt="Alex" %}
       Hello, I'm <span class="highlight">Vu Dat</span>
     </h1>
     <p class="hero-subtitle">Passionate Researcher | Developer | Innovator</p>
@@ -124,7 +119,7 @@ excerpt: 'Welcome to my digital space - exploring innovation through research, d
         {% endfor %}
       </div>
       {% endif %}
-      <a href="{{ article.url | relative_url }}" class="read-more">
+      <a href="{{ post.url | relative_url }}" class="read-more">
         Read More <i class="fas fa-arrow-right"></i>
       </a>
     </article>
