@@ -2389,3 +2389,86 @@ html {
     box-shadow: none;
   }
 }
+
+/* ==========================================================================
+   FORCE DARK QA TOOL
+   Temporary helper for QA: toggles a forced dark theme by adding
+   `force-dark` to the `html` element. Overrides the main design tokens
+   to simulate dark mode across pages. Toggle UI is added by a small
+   script and included in the site footer.
+   ========================================================================== */
+
+/* token overrides when `.force-dark` is applied to the root */
+.force-dark {
+  color-scheme: dark;
+  --bg-primary: #071025;
+  --bg-secondary: #0b1320;
+  --bg-tertiary: #0f1724;
+
+  --text-primary: #e6eef8;
+  --text-secondary: #c0c7d0;
+  --text-tertiary: #98a2b3;
+
+  --card-bg: #0b1320;
+  --card-bg-light: #0f1724;
+  --card-bg-dark: #111827;
+  --card-border: #1f2a38;
+  --card-text: #e6eef8;
+  --card-text-muted: #9aa3b1;
+
+  --color-primary: #52adc8;
+  --color-primary-light: #7dc9de;
+  --color-primary-dark: #3a8ba1;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.75);
+}
+
+/* Apply some global surface styles when forced */
+.force-dark body {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Toggle button UI (temporary and small footprint) */
+#force-dark-toggle {
+  position: fixed;
+  z-index: 2200;
+  right: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+#force-dark-toggle.force-on {
+  background: var(--color-primary);
+  color: var(--text-inverse);
+  border-color: transparent;
+}
+
+#force-dark-toggle:focus {
+  outline: 3px solid rgba(82,173,200,0.18);
+  outline-offset: 4px;
+}
+
+/* Reduce motion for the toggle to respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  #force-dark-toggle {
+    transition: none;
+  }
+}
+
+/* Small screens: keep toggle out of the way */
+@media (max-width: 420px) {
+  #force-dark-toggle { right: 0.5rem; bottom: 0.75rem; padding: 0.35rem 0.5rem; }
+}
