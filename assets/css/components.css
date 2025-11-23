@@ -139,6 +139,9 @@
   --bp-lg: 992px;
   --bp-xl: 1200px;
   --bp-2xl: 1400px;
+
+  --video-aspect-ratio: 56.25%; /* 16:9 default */
+  --video-border-radius: var(--radius-sm);
 }
 
 /* Dark mode support */
@@ -408,12 +411,22 @@
   background: var(--card-bg-light);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-normal);
+  transition: transform var(--transition-normal), 
+              box-shadow var(--transition-normal);
+}
+
+/* Focus state for accessibility */
+.youtube-video-card:focus-within,
+.video-card:focus-within {
+  outline: 2px solid var(--color-primary, #0066cc);
+  outline-offset: 2px;
+  box-shadow: var(--shadow-md);
 }
 
 .youtube-video-card:hover,
 .video-card:hover {
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .youtube-video-card h3,
@@ -422,6 +435,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--card-text);
+  line-height: 1.4; /* Better readability */
 }
 
 .youtube-video-card p,
@@ -429,30 +443,85 @@
   margin: var(--space-sm) 0 0;
   font-size: 0.875rem;
   color: var(--card-text-muted);
-}
-
-.youtube-video-card iframe,
-.video-card iframe {
-  border-radius: var(--radius-sm);
+  line-height: 1.5; /* Better readability */
 }
 
 /* Video Card Wrapper */
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: var(--video-aspect-ratio);
   height: 0;
   overflow: hidden;
-  border-radius: var(--radius-sm);
+  border-radius: var(--video-border-radius);
   background: #000;
+  margin-bottom: var(--space-sm); /* Spacing from description */
 }
 
-.video-wrapper iframe {
+.video-wrapper iframe,
+.youtube-video-card iframe,
+.video-card iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border: 0;
+  border-radius: var(--video-border-radius);
+}
+
+/* Loading state optimization */
+.video-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Remove spinner when iframe loads */
+.video-wrapper:has(iframe)::before {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .youtube-video-card,
+  .video-card {
+    padding: var(--space-sm);
+  }
+  
+  .youtube-video-card h3,
+  .video-card h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .youtube-video-card,
+  .video-card {
+    transition: none;
+  }
+  
+  .youtube-video-card:hover,
+  .video-card:hover {
+    transform: none;
+  }
+  
+  .video-wrapper::before {
+    animation: none;
+  }
 }
 
 /* Blog Card */
@@ -2045,5 +2114,278 @@ small,
   .cta-card:hover,
   .cta-card__button:hover {
     transform: none;
+  }
+}
+
+/* ==========================================================================
+   HOMEPAGE HERO - Left-aligned / pinned layout and stability guards
+   Keeps hero content pinned to the left edge of the content area while
+   preventing layout shifts caused by scrollbars or overflowing media.
+   Non-invasive and scoped to the homepage hero only.
+   ========================================================================== */
+
+.homepage-hero {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.homepage-hero .hero-content {
+  max-width: 900px; /* constrained content area */
+  margin-left: 0;   /* pin to the left */
+  margin-right: auto; /* keep extra space on the right */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Slightly wider max-width on very large screens */
+@media (min-width: 1400px) {
+  .homepage-hero .hero-content {
+    max-width: 1100px;
+  }
+}
+
+/* Ensure media inside hero cannot overflow and push layout */
+.homepage-hero img,
+.homepage-hero iframe,
+.homepage-hero video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent layout jump when scrollbars appear/disappear */
+html {
+  overflow-y: scroll;
+}
+
+/* ==========================================================================
+   IMAGE COMPONENT
+   Reusable image utilities and figure wrapper for consistent image display
+   - `.img-responsive` keeps images within their container
+   - `.figure` provides a centered figure wrapper with optional caption
+   - `.figure--left` / `.figure--right` float variants for editorial layout
+   ========================================================================== */
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+.figure {
+  display: block;
+  margin: 1.25rem 0;
+  text-align: center;
+}
+
+.figure img,
+.figure picture,
+.figure iframe,
+.figure video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.figure-caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.figure--left {
+  float: left;
+  margin-right: 1rem;
+  max-width: 45%;
+}
+
+.figure--right {
+  float: right;
+  margin-left: 1rem;
+  max-width: 45%;
+}
+
+/* Clearfix helper for floated figures inside text blocks */
+.figure:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .figure--left,
+  .figure--right {
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   IMAGE HOVER EFFECTS
+   Subtle, accessible hover/focus effects for images and figure media.
+   Respects prefers-reduced-motion.
+   ========================================================================== */
+
+.figure img,
+.figure picture,
+.figure iframe,
+.figure video,
+.img-responsive {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), filter var(--transition-normal);
+  will-change: transform;
+}
+
+.figure img:hover,
+.figure picture:hover,
+.figure iframe:hover,
+.figure video:hover,
+.img-responsive:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+  filter: brightness(1.02);
+}
+
+.figure img:focus,
+.figure picture:focus,
+.figure iframe:focus,
+.figure video:focus,
+.img-responsive:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.12);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .figure img,
+  .figure picture,
+  .figure iframe,
+  .figure video,
+  .img-responsive {
+    transition: none;
+  }
+
+  .figure img:hover,
+  .figure picture:hover,
+  .figure iframe:hover,
+  .figure video:hover,
+  .img-responsive:hover {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
+}
+
+/* ==========================================================================
+   AVATAR COMPONENT
+   - `.avatar` base with size modifiers
+   - image fallback / initial-letter support
+   - ring, border and rounded/square variants
+   - presence/status indicator (online/away/offline)
+   - accessible focus styles and reduced-motion support
+   ========================================================================== */
+
+.avatar-wrapper {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--card-bg-light);
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  box-shadow: var(--shadow-sm);
+  font-size: 0.95rem;
+}
+
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Size modifiers */
+.avatar--sm { width: 32px; height: 32px; font-size: 0.75rem; }
+.avatar--md { width: 48px; height: 48px; font-size: 0.95rem; }
+.avatar--lg { width: 72px; height: 72px; font-size: 1.15rem; }
+.avatar--xl { width: 96px; height: 96px; font-size: 1.35rem; }
+
+/* Shape & border variants */
+.avatar--rounded { border-radius: var(--radius-round); }
+.avatar--square { border-radius: var(--radius-md); }
+.avatar--border { border: 2px solid var(--card-border); padding: 2px; background: transparent; }
+.avatar--ring { box-shadow: 0 0 0 4px rgba(0,122,204,0.10); }
+
+/* Initial-letter fallback */
+.avatar--initials { display:inline-flex; align-items:center; justify-content:center; }
+.avatar--initials .avatar-text { padding: 0.25rem; }
+
+/* Presence / status indicator */
+.avatar__status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-primary);
+  box-shadow: var(--shadow-sm);
+  background: var(--color-gray-400);
+}
+.avatar__status--online { background: var(--color-success); }
+.avatar__status--away { background: #f59e0b; }
+.avatar__status--offline { background: var(--color-gray-400); }
+
+/* Hover / focus affordance */
+.avatar,
+.avatar img {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.avatar:hover,
+.avatar:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.avatar:focus { outline: 3px solid rgba(0,122,204,0.14); outline-offset: 4px; }
+
+/* Responsive: scale down slightly on very small screens */
+@media (max-width: 420px) {
+  .avatar--lg { width: 56px; height: 56px; }
+  .avatar--xl { width: 72px; height: 72px; }
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .avatar,
+  .avatar img {
+    transition: none;
+  }
+
+  .avatar:hover,
+  .avatar:focus {
+    transform: none;
+    box-shadow: none;
   }
 }

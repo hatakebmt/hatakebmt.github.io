@@ -2,6 +2,31 @@
    RESPONSIVE DESIGN - Mobile First Approach
    ========================================================================== */
 
+
+   
+/* ==========================================================================
+   RESPONSIVE FIXES - Prevent horizontal overflow and adjust margins
+   ========================================================================== */
+
+/* Global overflow prevention */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure hero and main containers don't overflow */
+.homepage-hero,
+.hero-content,
+.page__hero,
+.page__content {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* ==========================================================================
    Base Styles - Mobile First (320px and up)
    ========================================================================== */
@@ -329,6 +354,10 @@
    MOBILE (up to 767px) - Base Styles
    ========================================================================== */
 @media (max-width: 375px) {
+  .homepage-hero {
+    padding: 1.5rem 1rem; /* Reduced left/right padding */
+  }
+
   .homepage-hero .hero-title {
     font-size: 1.375rem;
   }
