@@ -12,7 +12,7 @@ header:
 author_profile: true
 mathjax: true
 custom_css:
-  - /assets/css/about-page.css
+  - /assets/css/components.css
 ---
 
 - [Quick Start](#quick-start)
