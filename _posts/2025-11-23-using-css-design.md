@@ -2,7 +2,6 @@
 layout: single
 title: "How to Use the New CSS Design System"
 date: 2025-11-23
-permalink: /using-css-design/
 categories: [design-system, css]
 tags: [css, design-system, tokens, components]
 excerpt: "Practical guide to adopt the centralized CSS design system (tokens, components, utilities) used across this site."
