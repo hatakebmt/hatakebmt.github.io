@@ -42,7 +42,7 @@ The things you truly need to care about, the things that help you learn *everyth
 
 ## The Difference Between the "Mechanic" and the "Research Engineer"
 
-I am studying at a Polytechnic University (Bach Khoa). And the thing I am most grateful to the school for is not the flashy specialized subjects, but the fact that the school "tortured" us with general education subjects.
+I am studying at a Hochiminh University of Technology (Bach Khoa University). And the thing I am most grateful to the school for is not the flashy specialized subjects, but the fact that the school "tortured" us with general education subjects.
 
 When I started accessing materials from top universities in the world like **MIT, Stanford, Berkeley, Carnegie Mellon, or Cambridge**, I realized a harsh reality: If you don't have a solid general foundation, reading their documents is like wandering into a maze without a map. You won't understand anything.
 
