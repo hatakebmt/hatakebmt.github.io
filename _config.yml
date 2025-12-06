@@ -311,6 +311,9 @@ compress_html:
   ignore:
     envs: development
 
+# Scripts
+after_footer_scripts:
+  - /assets/js/theme-manager.js
 
 # Collections
 collections:

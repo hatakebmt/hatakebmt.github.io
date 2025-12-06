@@ -16,31 +16,17 @@
   --about-shadow-color: rgba(47, 62, 70, 0.1);
 }
 
-/* Dark theme overrides */
+/* Dark mode overrides for about page */
 [data-theme="dark"] {
-  --about-text-color: #e0e0e0;
+  --about-text-color: #e6eef8;
   --about-heading-color: #ffffff;
-  --about-secondary-text: #b0b0b0;
-  --about-accent-color: #64b5f6;
-  --about-success-color: #64b5f6;
-  --about-primary-color: #64b5f6;
-  --about-background-light: rgba(100, 181, 246, 0.1);
-  --about-border-color: #333333;
-  --about-shadow-color: rgba(0, 0, 0, 0.3);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --about-text-color: #e0e0e0;
-    --about-heading-color: #ffffff;
-    --about-secondary-text: #b0b0b0;
-    --about-accent-color: #64b5f6;
-    --about-success-color: #64b5f6;
-    --about-primary-color: #64b5f6;
-    --about-background-light: rgba(100, 181, 246, 0.1);
-    --about-border-color: #333333;
-    --about-shadow-color: rgba(0, 0, 0, 0.3);
-  }
+  --about-secondary-text: #a8c4b5;
+  --about-accent-color: #52adc8;
+  --about-success-color: #34d399;
+  --about-primary-color: #52adc8;
+  --about-background-light: rgba(15, 23, 36, 0.6);
+  --about-border-color: #1f2a38;
+  --about-shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Header overlay text fix */
@@ -447,6 +433,47 @@
 
 .page__content li {
   color: var(--about-text-color) !important;
+}
+
+/* ==========================================================================
+   DARK MODE SPECIFIC OVERRIDES
+   ========================================================================== */
+
+/* Fix backgrounds and borders for dark mode */
+[data-theme="dark"] .skill-bar {
+  background: rgba(75, 85, 99, 0.4);
+}
+
+[data-theme="dark"] .tag {
+  background: rgba(82, 173, 200, 0.15);
+  color: #e6eef8;
+  border-color: #1f2a38;
+}
+
+[data-theme="dark"] .skill-badge {
+  background: rgba(15, 23, 36, 0.6);
+  border-color: #1f2a38;
+}
+
+[data-theme="dark"] .research-skill {
+  background: rgba(15, 23, 36, 0.6);
+  border-color: #1f2a38;
+}
+
+[data-theme="dark"] .education-item,
+[data-theme="dark"] .timeline-item {
+  background: rgba(15, 23, 36, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .timeline-item.current {
+  background: linear-gradient(135deg, rgba(82, 173, 200, 0.1) 0%, rgba(15, 23, 36, 0.6) 100%);
+}
+
+[data-theme="dark"] .interest-tag.secondary {
+  background: rgba(15, 23, 36, 0.6);
+  color: #e6eef8;
+  border-color: #1f2a38;
 }
 
 /* ==========================================================================
