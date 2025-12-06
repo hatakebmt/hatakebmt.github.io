@@ -9,6 +9,44 @@
 {%- comment %} https://docs.google.com/presentation/d/1rmxwWa9P6_xHqonmh5ONXRS-jPc5XKbnv99Rjkhe04s/present {% endcomment -%}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- FOUC Prevention: Apply theme before CSS loads -->
+<script>
+  (function() {
+    'use strict';
+    var STORAGE_KEY = 'theme-preference';
+    var THEME_AUTO = 'auto';
+    var THEME_LIGHT = 'light';
+    var THEME_DARK = 'dark';
+
+    function getStoredPreference() {
+      try {
+        var stored = localStorage.getItem(STORAGE_KEY);
+        if (stored === THEME_LIGHT || stored === THEME_DARK || stored === THEME_AUTO) {
+          return stored;
+        }
+      } catch (e) {
+        // localStorage not available
+      }
+      return THEME_AUTO;
+    }
+
+    function getEffectiveTheme(preference) {
+      if (preference === THEME_AUTO) {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME_DARK : THEME_LIGHT;
+      }
+      return preference;
+    }
+
+    var preference = getStoredPreference();
+    var effectiveTheme = getEffectiveTheme(preference);
+
+    // Apply theme immediately
+    document.documentElement.setAttribute('data-theme', effectiveTheme);
+    document.documentElement.setAttribute('data-theme-preference', preference);
+    document.documentElement.style.colorScheme = effectiveTheme;
+  })();
+</script>
+
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   {% if site.enable_copy_code_button -%}
