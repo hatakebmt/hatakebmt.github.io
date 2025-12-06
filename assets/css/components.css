@@ -144,59 +144,6 @@
   --video-border-radius: var(--radius-sm);
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Card colors (existing) */
-    --card-bg: #1a1a1a;
-    --card-bg-light: #252525;
-    --card-bg-dark: #2a2a2a;
-    --card-border: #404040;
-    --card-text: #e0e0e0;
-    --card-text-muted: #a0a0a0;
-
-    /* Brand colors - adjusted for dark mode */
-    --color-primary: #52adc8;
-    --color-primary-light: #7dc9de;
-    --color-primary-dark: #3a8ba1;
-    
-    /* Semantic colors - brighter for dark mode */
-    --color-success: #34d399;
-    --color-warning: #fbbf24;
-    --color-error: #f87171;
-    --color-info: #60a5fa;
-    
-    /* Neutral scale - inverted for dark mode */
-    --color-gray-50: #111827;
-    --color-gray-100: #1f2937;
-    --color-gray-200: #374151;
-    --color-gray-300: #4b5563;
-    --color-gray-400: #6b7280;
-    --color-gray-500: #9ca3af;
-    --color-gray-600: #d1d5db;
-    --color-gray-700: #e5e7eb;
-    --color-gray-800: #f3f4f6;
-    --color-gray-900: #f9fafb;
-    
-    /* Text colors - inverted for dark mode */
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --text-tertiary: #9ca3af;
-    --text-inverse: #111827;
-    
-    /* Background colors - dark mode */
-    --bg-primary: #111827;
-    --bg-secondary: #1f2937;
-    --bg-tertiary: #374151;
-
-    /* Shadows - darker for dark mode */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
-    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.6);
-    --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.7);
-    --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.8);
-  }
-}
-
 /* ==========================================================================
    BUTTON EXTENSIONS
    Extends Minimal Mistakes theme buttons with additional variants
@@ -841,15 +788,6 @@
   height: 3px;
   background: linear-gradient(90deg, #007acc, #52adc8);
   border-radius: 2px;
-}
-
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .section-title {
-    color: var(--card-text);
-    border-image: linear-gradient(90deg, #52adc8 0%, #007acc 50%, transparent 100%);
-    border-image-slice: 1;
-  }
 }
 
 /* Focus styles for accessibility */
