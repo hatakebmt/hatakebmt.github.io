@@ -83,19 +83,16 @@ excerpt: "One-line summary"
 
 ## Theme & customization notes
 
-- Primary theme adjustments and the global header overlay/TOC fixes live in `assets/css/theme-enhanced.css`. That file contains:
-  - header overlay text rules (ensures excerpt and header title are always readable)
-  - global CSS variables and dark/light overrides
-  - TOC styling for both light and dark themes
-  - navigation/masthead theme overrides
-
-- Theme switching and persistence are handled in `assets/js/theme-switcher.js`. It reads/writes to `localStorage`, responds to system preference, and updates `html[data-theme]` accordingly.
+- Custom components (cards, buttons, hero, blog/project grids) and design tokens live in `assets/css/components.css`. The `:root` block at the top of that file defines the single source of truth for spacing (`--space-*`), type scale (`--text-*`, `--fluid-text-*`), color (`--color-*`), radius (`--radius-*`), and shadow (`--shadow-*`) tokens — reuse these instead of hand-rolled magic numbers when adding new components. The theme's own SCSS variables in `assets/css/main.scss` (`$global-font-family`, `$header-font-family`, etc.) drive the underlying Minimal Mistakes partials and are separate from this token set; leave those alone unless you're changing the base theme.
+- Responsive/breakpoint overrides live in `assets/css/responsive.css`.
+- Post and project prose (anything rendered through `_layouts/single.html` for a collection document, i.e. `page.id` is set) automatically gets a constrained reading width via `.page__content--prose` in `components.css`. Hand-authored pages (like the homepage) are unaffected by default.
+- There is currently no dark mode / theme switcher implemented — the site is light-mode only. (An earlier `prefers-color-scheme` based token swap existed but was removed because it changed text colors without a matching background swap, making some text unreadable; building a real dark mode is a separate future task.)
 
 - **MathJax support**: LaTeX mathematical formulas are supported via MathJax v3. Use `$...$` for inline math and `$$...$$` for display math in your posts. Enable by adding `mathjax: true` to post front matter (enabled by default for all posts).
 
 - **Mermaid diagrams**: Flowcharts, sequence diagrams, and other Mermaid diagrams are supported. Use ` ```mermaid ` code blocks in your posts. Enable by adding `mermaid: true` to post front matter.
 
-If you want to tweak the header overlay color/contrast, edit the `.page__hero--overlay` selectors in `assets/css/theme-enhanced.css`. For TOC look-and-feel, edit the `.toc` and `.toc__menu` sections.
+- **Table of contents**: `toc: true` is on by default for posts and projects (see `_config.yml` defaults) since most of this blog's content is long-form and technical. `toc_sticky` is left `false` — the theme's sticky TOC positioning conflicts with the `float`-based content layout and misplaces content on scroll; revisit if that theme layout is ever reworked. Set `toc: false` in a post's front matter to opt out of the TOC entirely.
 
 ## Troubleshooting
 
