@@ -2389,3 +2389,26 @@ html {
     box-shadow: none;
   }
 }
+
+/* ==========================================================================
+   TYPOGRAPHY POLISH
+   Display font (Outfit) + tighter tracking on large headings
+   ========================================================================== */
+
+h1, h2, h3,
+.hero-title,
+.section-title {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.hero-title {
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* Body copy: enable contextual/kerning niceties from Inter */
+body {
+  font-feature-settings: "cv11", "ss01";
+  text-rendering: optimizeLegibility;
+}
