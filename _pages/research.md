@@ -3,11 +3,6 @@ layout: single
 title: Research
 permalink: /research/
 author_profile: true
-header:
-  overlay_color: "#000"
-  overlay_filter: "0.5"
-  overlay_image: /assets/images/research-header.jpg
-  caption: "Innovation through Code"
 excerpt: "Explore my portfolio of innovative projects spanning AI, data science, and software engineering. Click on any project to learn more about the technical implementation, challenges solved, and business impact."
 ---
 

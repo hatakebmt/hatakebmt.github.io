@@ -16,33 +16,6 @@
   --about-shadow-color: rgba(47, 62, 70, 0.1);
 }
 
-/* Dark theme overrides */
-[data-theme="dark"] {
-  --about-text-color: #e0e0e0;
-  --about-heading-color: #ffffff;
-  --about-secondary-text: #b0b0b0;
-  --about-accent-color: #64b5f6;
-  --about-success-color: #64b5f6;
-  --about-primary-color: #64b5f6;
-  --about-background-light: rgba(100, 181, 246, 0.1);
-  --about-border-color: #333333;
-  --about-shadow-color: rgba(0, 0, 0, 0.3);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --about-text-color: #e0e0e0;
-    --about-heading-color: #ffffff;
-    --about-secondary-text: #b0b0b0;
-    --about-accent-color: #64b5f6;
-    --about-success-color: #64b5f6;
-    --about-primary-color: #64b5f6;
-    --about-background-light: rgba(100, 181, 246, 0.1);
-    --about-border-color: #333333;
-    --about-shadow-color: rgba(0, 0, 0, 0.3);
-  }
-}
-
 /* Header overlay text fix */
 .page__hero--overlay .page__title,
 .page__hero--overlay .page__lead,
