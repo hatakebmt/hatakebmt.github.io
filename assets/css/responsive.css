@@ -232,28 +232,6 @@ body {
     background-color: rgba(0, 0, 0, 0.05) !important;
     color: #007acc !important;
   }
-  
-  /* Background overlay when menu is open */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
-    pointer-events: none;
-  }
-  
-  body.nav-open::before {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease, visibility 0s linear 0s;
-  }
 }
 
 /* ==========================================================================
