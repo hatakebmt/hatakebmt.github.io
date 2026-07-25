@@ -3,11 +3,6 @@ layout: single
 title: About Me
 permalink: /about/
 author_profile: true
-header:
-  overlay_color: "#000"
-  overlay_filter: "0.5"
-  overlay_image: /assets/images/about-header.jpg
-  caption: "Photo by [Unsplash](https://unsplash.com)"
 excerpt: "Passionate researcher and developer with expertise in technology and innovation"
 custom_css:
   - /assets/css/about-page.css
