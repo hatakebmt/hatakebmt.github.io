@@ -113,7 +113,7 @@ analytics:
 author:
   name             : "Vu Tien Dat"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am a Mechatronics Engineering student at Ho Chi Minh City University of Technology (HCMUT). My research interests include Data Science, Machine Learning, and Artificial Intelligence."
+  bio              : "Mechatronics Engineering student at Ho Chi Minh City University of Technology (HCMUT), working on control theory, robotics, and UAV design."
   location         : "Ho Chi Minh City, Vietnam"
   email            :
   links:
@@ -332,6 +332,8 @@ defaults:
       share: true
       related: true
       mathjax: true
+      toc: true
+      toc_sticky: false
   # _projects
   - scope:
       path: ""
@@ -344,3 +346,5 @@ defaults:
       share: true
       related: true
       mathjax: true
+      toc: true
+      toc_sticky: false
