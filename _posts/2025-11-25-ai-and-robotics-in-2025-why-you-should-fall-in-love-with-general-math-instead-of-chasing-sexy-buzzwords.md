@@ -41,11 +41,8 @@ Those specialized subjects are often just a very small instance, a tiny slice of
 The things you truly need to care about, the things that help you learn *everything* in Robotics and AI, lie in the places you likely hate the most: the lecture halls of your first two years at university.
 
 ## The Difference Between the "Mechanic" and the "Research Engineer"
-
 I am studying at a Hochiminh University of Technology (Bach Khoa University). And the thing I am most grateful to the school for is not the flashy specialized subjects, but the fact that the school "tortured" us with general education subjects.
-
 When I started accessing materials from top universities in the world like **MIT, Stanford, Berkeley, Carnegie Mellon, or Cambridge**, I realized a harsh reality: If you don't have a solid general foundation, reading their documents is like wandering into a maze without a map. You won't understand anything.
-
 At top universities, their training process is very distinct. For example, at the University of Michigan, the roadmap to learning Robotics doesn't start with assembling a robot kit. It looks something like this:
 
 ```mermaid
