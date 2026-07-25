@@ -1,43 +1,35 @@
 ---
 layout: single
-author_profile: true
-header:
-  overlay_color: '#000'
-  overlay_filter: '0.5'
-  overlay_image: /assets/images/hero-bg.jpg
-  actions:
-    - label: 'View My Work'
-      url: '/project/'
-      btn_class: 'btn--primary'
-    - label: 'Read Research'
-      url: '/research/'
-      btn_class: 'btn--info'
-excerpt: 'Welcome to my digital space - exploring innovation through research, development, and creative problem-solving in technology.'
+author_profile: false
+excerpt: 'Mechatronics engineering student at HCMUT writing about control theory, robotics, and machine learning.'
 ---
 
 <div class="homepage-hero">
   <div class="hero-content">
     <h1 class="hero-title">
-      {% include avatar.html image="/assets/images/avatar-alex.jpg" size="md" ring="true" status="online" alt="Alex" %}
-      Hello, I'm <span class="highlight">Vu Dat</span>
+      {% include avatar.html image="/assets/images/avatar-alex.jpg" size="md" ring="true" status="online" alt="Vu Tien Dat" %}
+      Hi, I'm <span class="highlight">Vu Dat</span>
     </h1>
-    <p class="hero-subtitle">Passionate Researcher | Developer | Innovator</p>
+    <p class="hero-subtitle">Mechatronics engineer — control theory, robotics, machine learning</p>
     <p class="hero-description">
-      I'm dedicated to advancing technology through cutting-edge research,
-      innovative projects, and sharing knowledge with the global community.
-      Welcome to my digital portfolio where science meets practical application.
+      I'm a Mechatronics Engineering student at HCMUT. I work on control systems
+      and UAV design, and I write about the theory behind them and how it plays out
+      in practice. This is where I keep my projects, research notes, and blog.
     </p>
+    <div class="hero-actions">
+      <a href="/project/" class="btn btn--primary">View My Work</a>
+      <a href="/research/" class="btn btn--info">Read Research</a>
+    </div>
   </div>
 </div>
 
-<h2 class="section-title">📺 Watch & Learn: My YouTube Journey</h2>
+<h2 class="section-title">From my YouTube channel</h2>
 
 <div class="youtube-section">
   <div class="youtube-intro">
     <p>
-      I also share video content on my YouTube channel, where I discuss
-      technology trends, provide tutorials, and share insights from my
-      projects. Check out my latest videos below:
+      I post tutorials and short talks on control theory, robotics, and machine
+      learning. A few recent ones:
     </p>
   </div>
 
@@ -53,7 +45,7 @@ excerpt: 'Welcome to my digital space - exploring innovation through research, d
           loading="lazy">
         </iframe>
       </div>
-      <p> An in-depth exploration of optimal control theory and its applications in engineering and economics.</p>
+      <p>How optimal control theory works, and where it shows up in engineering and economics.</p>
     </div>
     <div class="youtube-video-card">
       <h3>Reinforcement Learning</h3>
@@ -66,30 +58,31 @@ excerpt: 'Welcome to my digital space - exploring innovation through research, d
           loading="lazy">
         </iframe>
       </div>
-      <p> An in-depth exploration of optimal control theory and its applications in engineering and economics.</p>
+      <p>An introduction to reinforcement learning: how agents learn to make decisions by trial, reward, and feedback.</p>
     </div>
     <div class="youtube-video-card">
       <h3>UAV Controller Design from Theory to Practice</h3>
       <div class="video-wrapper">
         <iframe
           src="https://www.youtube.com/embed/9ZV2jAFdfvw"
+          title="UAV Controller Design from Theory to Practice"
           frameborder="0"
           allowfullscreen
           loading="lazy"
         ></iframe>
       </div>
+      <p>Designing a UAV flight controller end to end, from the control theory on paper to a working implementation.</p>
     </div>
   </div>
 </div>
 
 
-<h2 class="section-title">📝 Insights & Ideas: Fresh From My Blog</h2>
+<h2 class="section-title">Fresh from the blog</h2>
 
 <div class="blog-section">
   <div class="blog-intro">
     <p>
-      I regularly share insights, tutorials, and thoughts on technology,
-      research methodologies, and industry trends. Here are my most recent
+      Notes on what I'm reading, building, and thinking about. My most recent
       posts:
     </p>
   </div>
@@ -136,18 +129,15 @@ excerpt: 'Welcome to my digital space - exploring innovation through research, d
   </a>
 </div>
 
----
-
-<h2 class="section-title">📞 Let's Build Something Amazing Together!</h2>
+<h2 class="section-title">Let's work together</h2>
 
 <div class="connect-section">
   <p class="connect-intro">
-    I'm always excited to collaborate on innovative projects, discuss research
-    opportunities, or simply connect with like-minded professionals. Let's build
-    something amazing together!
+    I'm open to research collaborations, project work, and a good conversation
+    about control, robotics, or ML. Reach out through any of the links below.
   </p>
 
-  <div class="connect-grid">
+  <div class="connect-grid card-grid card-grid--4col">
     <a
       href="/contact/"
       class="connect-card"
